@@ -1,413 +1,495 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa Fractal | Refugio de Selva y Mar</title>
-    <!-- Google Fonts: Combinación premium con serifas elegantes y sans-serif limpio -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ==========================================================================
-           ESTILOS VISUALES (Antes en style.css, ahora unificados para tu comodidad)
-           ========================================================================== */
-        :root {
-            --primary: #1e3932;       /* Verde selva profundo */
-            --accent: #d37a53;        /* Terracota / Tierra cálida */
-            --bg-light: #fdfbf7;      /* Arena suave / Off-white */
-            --text-dark: #222222;     /* Texto principal */
-            --text-muted: #6b7770;    /* Texto secundario sutil */
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa Fractal · Coquí · Chocó — Turismo Científico en el Pacífico colombiano</title>
+<meta name="description" content="Casa Fractal, la casa de las ciencias y los saberes. Turismo científico en Coquí, Nuquí, Chocó, Pacífico colombiano.">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<!-- ========================================================
+     CASA FRACTAL — index.html v2 (GitHub Pages)
+     Estructura de carpetas para subir al repositorio:
+       index.html
+       logo.png
+       logo-blanco.png
+       img/  (todas las fotos .jpg)
+     Datos ya configurados: WhatsApp, Instagram, email.
+     ======================================================== -->
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: #ffffff;
-        }
+<style>
+:root{
+  --abismo:#01161E; --carbon:#353535; --petroleo:#124559; --azul:#284B63;
+  --teal:#3C6E71; --acero:#598392; --salvia:#AEC3B0; --bruma:#EFF6E0;
+  --niebla:#D9D9D9; --blanco:#FFFFFF;
+  --bg:var(--bruma); --texto:var(--abismo); --tenue:#46585a;
+  --display:"Georgia","Times New Roman",serif;
+  --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --maxw:1240px; --r:4px; --transit:.45s cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--texto);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-height:1.14}
+.eyebrow{font-family:var(--sans);font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:1rem}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.2rem,4vw,3rem)}
+.section{padding:clamp(4rem,9vw,7.5rem) 0}
+.fractal-divider{display:flex;justify-content:center;padding:2.5rem 0;opacity:.5}
+.fractal-divider svg{width:64px;height:auto}
 
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+/* HEADER siempre visible */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.55rem clamp(1.2rem,4vw,3rem);background:rgba(1,22,30,.92);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.18);transition:padding var(--transit)}
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand img{height:48px;width:auto;transition:height var(--transit)}
+.site-header.scrolled .brand img{height:42px}
+.nav-desktop{display:flex;align-items:center;gap:1.7rem}
+.nav-desktop a{color:var(--bruma);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;position:relative;padding:.2rem 0;opacity:.9;transition:opacity .25s}
+.nav-desktop a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1.5px;background:var(--salvia);transition:width .3s}
+.nav-desktop a:hover{opacity:1}
+.nav-desktop a:hover::after{width:100%}
+.header-tools{display:flex;align-items:center;gap:.9rem}
+.lang-switch{display:flex;border:1px solid rgba(174,195,176,.45);border-radius:30px;overflow:hidden}
+.lang-switch button{background:transparent;border:none;cursor:pointer;color:var(--bruma);font-size:.72rem;font-weight:700;letter-spacing:.08em;padding:.35rem .7rem;transition:background .25s,color .25s;font-family:var(--sans)}
+.lang-switch button.active{background:var(--salvia);color:var(--abismo)}
+.btn-reserva{background:var(--teal);color:var(--blanco)!important;padding:.55rem 1.2rem;border-radius:30px;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;transition:background .3s,transform .3s;white-space:nowrap}
+.btn-reserva:hover{background:var(--salvia);color:var(--abismo)!important;transform:translateY(-2px)}
+.hamb{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.hamb span{width:26px;height:2px;background:var(--bruma);transition:.3s}
+.hamb.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamb.open span:nth-child(2){opacity:0}
+.hamb.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mobile{position:fixed;inset:0;z-index:99;background:rgba(1,22,30,.985);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;transform:translateX(100%);transition:transform .4s ease}
+.nav-mobile.open{transform:translateX(0)}
+.nav-mobile a{color:var(--bruma);font-family:var(--display);font-size:1.6rem}
 
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;color:var(--bruma);overflow:hidden}
+.hero-media{position:absolute;inset:0;z-index:0;background:url('img/costa-aerea.jpg') center/cover no-repeat;transform:scale(1.05);animation:slowzoom 18s ease-out forwards}
+@keyframes slowzoom{to{transform:scale(1)}}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(1,22,30,.82) 0%,rgba(1,22,30,.45) 60%,rgba(1,22,30,.25) 100%)}
+.hero-content{position:relative;z-index:2;max-width:780px}
+.hero h1{font-size:clamp(2.5rem,6.3vw,5rem);margin:.4rem 0 1.4rem}
+.hero p{font-size:clamp(1.05rem,2vw,1.3rem);max-width:560px;color:#e3ede6;margin-bottom:2.2rem}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-ghost{border:1.5px solid var(--salvia);color:var(--bruma)!important;padding:.85rem 1.7rem;border-radius:30px;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;transition:.3s}
+.btn-ghost:hover{background:var(--salvia);color:var(--abismo)!important}
+.btn-solid{background:var(--teal);color:#fff!important;padding:.85rem 1.9rem;border-radius:30px;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;transition:.3s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-solid:hover{background:var(--salvia);color:var(--abismo)!important;transform:translateY(-2px)}
+.scroll-hint{position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);z-index:2;color:var(--salvia);font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
 
-        h1, h2, h3, .logo {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary);
-        }
+/* figuras */
+.figure{position:relative;border-radius:var(--r);overflow:hidden;background:var(--niebla)}
+.figure img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.figure:hover img{transform:scale(1.04)}
 
-        /* Menú de Navegación */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            background-color: #ffffff;
-            border-bottom: 1px solid #eaeaea;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+/* HISTORIA */
+.intro{background:var(--bruma)}
+.intro .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.intro h2{font-size:clamp(1.9rem,3.6vw,2.9rem);margin-bottom:1.3rem;color:var(--petroleo)}
+.intro p{color:var(--tenue);margin-bottom:1rem;font-size:1.05rem}
+.intro .figure{min-height:440px}
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
+/* EXPERIENCIAS */
+.experiencias{background:var(--abismo);color:var(--bruma)}
+.experiencias h2{font-size:clamp(1.9rem,3.6vw,2.9rem);color:var(--bruma)}
+.sec-head{max-width:640px;margin-bottom:3rem}
+.sec-head p{color:#9fb0b2;margin-top:.8rem;font-size:1.05rem}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.card{background:#0a2530;border:1px solid #163642;border-radius:var(--r);overflow:hidden;transition:transform .4s,border-color .4s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);border-color:var(--teal)}
+.card .figure{height:210px;border-radius:0}
+.card-body{padding:1.6rem}
+.card h3{font-size:1.3rem;margin-bottom:.6rem;color:var(--salvia)}
+.card p{color:#9fb0b2;font-size:.95rem}
 
-        .nav-links a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
+/* GALERÍA */
+.galeria{background:var(--bruma)}
+.galeria h2{font-size:clamp(1.9rem,3.6vw,2.9rem);color:var(--petroleo)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:1rem;margin-top:2.5rem}
+.gal-grid .figure{height:100%}
+.gal-grid .tall{grid-row:span 2}
+.gal-grid .wide{grid-column:span 2}
 
-        .nav-links a:hover {
-            color: var(--accent);
-        }
+/* ALOJAMIENTO */
+.aloja{background:var(--azul);color:var(--bruma)}
+.aloja h2{font-size:clamp(1.9rem,3.6vw,2.9rem);color:var(--bruma)}
+.aloja .sec-head p{color:#c3d3d5}
+.rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.room .figure{height:250px}
+.room h3{margin:1rem 0 .4rem;font-size:1.25rem;color:var(--salvia)}
+.room p{color:#c3d3d5;font-size:.92rem}
 
-        .btn-nav {
-            background-color: var(--primary);
-            color: white !important;
-            padding: 8px 20px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            transition: background-color 0.3s;
-        }
+/* GASTRONOMÍA */
+.gastro{background:var(--teal);color:#fff}
+.gastro .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.gastro h2{font-size:clamp(1.9rem,3.6vw,2.9rem);margin-bottom:1.2rem}
+.gastro p{color:#e9f1ec;font-size:1.05rem;margin-bottom:1rem}
+.gastro .figure{min-height:380px}
 
-        .btn-nav:hover {
-            background-color: var(--accent);
-        }
+/* CÓMO LLEGAR */
+.llegar{background:var(--bruma)}
+.llegar .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.llegar h2{font-size:clamp(1.9rem,3.6vw,2.9rem);color:var(--petroleo);margin-bottom:1.2rem}
+.llegar p{color:var(--tenue);margin-bottom:1rem}
+.llegar ol{color:var(--tenue);padding-left:1.2rem;margin-top:1rem}
+.llegar li{margin-bottom:.6rem}
+.llegar .figure{min-height:420px}
 
-        /* Hero Section */
-        .hero {
-            padding: 140px 0;
-            text-align: center;
-            background: linear-gradient(rgba(30, 57, 50, 0.2), rgba(30, 57, 50, 0.4)), linear-gradient(180deg, #ffffff 0%, var(--bg-light) 100%);
-            background-size: cover;
-            background-position: center;
-        }
+/* CONTACTO */
+.contacto{background:var(--abismo);color:var(--bruma);text-align:center}
+.contacto h2{font-size:clamp(2rem,4.5vw,3.4rem);margin-bottom:1rem}
+.contacto p{color:#9fb0b2;max-width:540px;margin:0 auto 2.2rem;font-size:1.08rem}
+.contacto .btn-solid{font-size:.9rem;padding:1rem 2.3rem}
+.contact-meta{margin-top:2.4rem;display:flex;gap:2.4rem;justify-content:center;flex-wrap:wrap;color:#9fb0b2;font-size:.92rem;letter-spacing:.02em}
+.contact-meta a{color:#9fb0b2;transition:color .25s}
+.contact-meta a:hover{color:var(--salvia)}
+.contact-meta strong{color:var(--salvia);display:block;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.7rem;margin-bottom:.4rem}
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+/* FOOTER */
+.site-footer{background:#000a0e;color:#7f9296;padding:3.5rem 0 2rem}
+.footer-grid{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+.site-footer img{height:78px;width:auto}
+.socials{display:flex;gap:1.2rem}
+.socials a{width:42px;height:42px;border:1px solid #1d4250;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.3s}
+.socials a:hover{background:var(--teal);border-color:var(--teal)}
+.socials svg{width:18px;height:18px;fill:var(--salvia)}
+.footer-bottom{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid #0e2731;text-align:center;font-size:.78rem;letter-spacing:.04em}
 
-        .hero-content p {
-            font-size: 1.25rem;
-            color: var(--text-dark);
-            max-width: 600px;
-            margin: 0 auto 35px auto;
-        }
+/* WHATSAPP FLOTANTE */
+.wa-float{position:fixed;bottom:22px;right:22px;z-index:90;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(0,0,0,.3);transition:transform .3s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
 
-        .btn-main {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 14px 36px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: background-color 0.3s, transform 0.2s;
-        }
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
 
-        .btn-main:hover {
-            background-color: #be6640;
-            transform: translateY(-1px);
-        }
+/* i18n */
+[data-en]{display:none}
+html[lang="en"] [data-es]{display:none}
+html[lang="en"] [data-en]{display:revert}
 
-        /* Secciones Generales */
-        .experiencia-section, .rooms-section, .location-section {
-            padding: 100px 0;
-        }
-
-        .experiencia-section {
-            background-color: #ffffff;
-        }
-
-        .subtitle {
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            color: var(--accent);
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .text-block h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .text-block p {
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-
-        /* Marcadores de posición para imágenes (Placeholders) */
-        .image-placeholder {
-            background-color: var(--bg-light);
-            border: 1px dashed var(--text-muted);
-            height: 350px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            padding: 20px;
-            border-radius: 4px;
-        }
-
-        /* Espacios / Habitaciones */
-        .rooms-section {
-            background-color: var(--bg-light);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-        }
-
-        .rooms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 40px;
-        }
-
-        .room-card {
-            background-color: #ffffff;
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-            border-bottom: 3px solid transparent;
-            transition: border-color 0.3s, transform 0.3s;
-        }
-
-        .room-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-        }
-
-        .card-img {
-            height: 280px;
-            border: none;
-            border-bottom: 1px solid #eaeaea;
-        }
-
-        .room-info {
-            padding: 30px;
-        }
-
-        .room-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .room-info p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .price {
-            font-weight: 600;
-            color: var(--accent);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Ubicación y Contacto */
-        .location-section {
-            background-color: #ffffff;
-        }
-
-        .map-img {
-            height: 400px;
-        }
-
-        .tips-lista {
-            list-style: none;
-            margin: 25px 0;
-        }
-
-        .tips-lista li {
-            margin-bottom: 12px;
-            color: var(--text-dark);
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .tips-lista li::before {
-            content: "•";
-            color: var(--accent);
-            font-size: 1.5rem;
-            position: absolute;
-            left: 0;
-            top: -4px;
-        }
-
-        .btn-whatsapp {
-            display: inline-block;
-            background-color: #25d366;
-            color: white;
-            padding: 14px 30px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #1ebd58;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary);
-            color: var(--bg-light);
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        footer p {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            letter-spacing: 0.5px;
-        }
-
-        /* Responsivo (Celulares) */
-        @media (max-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr; gap: 30px; }
-            .navbar { flex-direction: column; gap: 15px; text-align: center; }
-            .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-            .nav-links a { margin: 0 5px; }
-            .hero { padding: 80px 0; }
-            .hero-content h1 { font-size: 2.2rem; }
-            .rooms-grid { grid-template-columns: 1fr; }
-            .experiencia-section, .rooms-section, .location-section { padding: 60px 0; }
-        }
-    </style>
+/* responsive */
+@media(max-width:980px){
+  .cards,.rooms{grid-template-columns:repeat(2,1fr)}
+  .gal-grid{grid-template-columns:repeat(3,1fr)}
+  .intro .grid,.gastro .grid,.llegar .grid{grid-template-columns:1fr}
+  .intro .figure,.gastro .figure,.llegar .figure{min-height:300px}
+}
+@media(max-width:720px){
+  .nav-desktop{display:none}
+  .hamb{display:flex}
+  .header-tools .btn-reserva{display:none}
+  .cards,.rooms{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}
+  .gal-grid .wide{grid-column:span 2}
+  .contact-meta{gap:1.6rem}
+  .hero-overlay{background:linear-gradient(180deg,rgba(1,22,30,.5),rgba(1,22,30,.85))}
+}
+</style>
 </head>
 <body>
 
-    <!-- MENÚ DE NAVEGACIÓN -->
-    <header class="navbar">
-        <div class="logo">CASA FRACTAL</div>
-        <nav class="nav-links">
-            <a href="#experiencia">La Experiencia</a>
-            <a href="#habitaciones">Espacios</a>
-            <a href="#ubicacion">Ubicación</a>
-        </nav>
-        <a href="#contacto" class="btn-nav">Reservar</a>
-    </header>
+<!-- HEADER -->
+<header class="site-header" id="header">
+  <a href="#inicio" class="brand"><img src="logo-blanco.png" alt="Casa Fractal · Coquí · Chocó"></a>
+  <nav class="nav-desktop">
+    <a href="#historia" data-es="Historia" data-en="Story">Historia</a>
+    <a href="#experiencias" data-es="Experiencias" data-en="Experiences">Experiencias</a>
+    <a href="#alojamiento" data-es="Alojamiento" data-en="Stay">Alojamiento</a>
+    <a href="#gastronomia" data-es="Gastronomía" data-en="Cuisine">Gastronomía</a>
+    <a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a>
+    <a href="#llegar" data-es="Cómo llegar" data-en="Getting here">Cómo llegar</a>
+    <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+  </nav>
+  <div class="header-tools">
+    <div class="lang-switch" role="group" aria-label="Idioma / Language">
+      <button id="btn-es" class="active" onclick="setLang('es')">ES</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <a class="btn-reserva wa-link" href="#" data-es="Reservar" data-en="Book" target="_blank" rel="noopener">Reservar</a>
+    <button class="hamb" id="hamb" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Un refugio consciente entre la selva y el mar</h1>
-            <p>Descubre el equilibrio perfecto entre comunidad, desconexión y la magia del Pacífico.</p>
-            <a href="#contacto" class="btn-main">Explorar Disponibilidad</a>
+<!-- MENÚ MÓVIL -->
+<nav class="nav-mobile" id="navMobile">
+  <a href="#historia" data-es="Historia" data-en="Story">Historia</a>
+  <a href="#experiencias" data-es="Experiencias" data-en="Experiences">Experiencias</a>
+  <a href="#alojamiento" data-es="Alojamiento" data-en="Stay">Alojamiento</a>
+  <a href="#gastronomia" data-es="Gastronomía" data-en="Cuisine">Gastronomía</a>
+  <a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a>
+  <a href="#llegar" data-es="Cómo llegar" data-en="Getting here">Cómo llegar</a>
+  <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+  <a class="btn-solid wa-link" href="#" data-es="Reservar por WhatsApp" data-en="Book via WhatsApp" target="_blank" rel="noopener">Reservar</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-media"></div>
+  <div class="hero-overlay"></div>
+  <div class="wrap">
+    <div class="hero-content">
+      <p class="eyebrow" data-es="Coquí · Nuquí · Chocó · Pacífico colombiano" data-en="Coquí · Nuquí · Chocó · Colombian Pacific">Coquí · Nuquí · Chocó · Pacífico colombiano</p>
+      <h1 data-es="La casa de las ciencias y los saberes" data-en="The house of sciences and knowledge">La casa de las ciencias y los saberes</h1>
+      <p data-es="Un refugio para el turismo científico donde la selva del Chocó se encuentra con el mar. Observa, aprende y conéctate con uno de los lugares más biodiversos del planeta." data-en="A refuge for scientific tourism where the Chocó rainforest meets the sea. Observe, learn and connect with one of the most biodiverse places on Earth.">Un refugio para el turismo científico donde la selva del Chocó se encuentra con el mar. Observa, aprende y conéctate con uno de los lugares más biodiversos del planeta.</p>
+      <div class="hero-ctas">
+        <a class="btn-solid wa-link" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span data-es="Reservar por WhatsApp" data-en="Book via WhatsApp">Reservar por WhatsApp</span>
+        </a>
+        <a class="btn-ghost" href="#experiencias" data-es="Ver experiencias" data-en="See experiences">Ver experiencias</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint" data-es="Descubre" data-en="Discover">Descubre</div>
+</section>
+
+<!-- HISTORIA -->
+<section class="section intro" id="historia">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal">
+        <p class="eyebrow" data-es="Nuestra historia" data-en="Our story">Nuestra historia</p>
+        <h2 data-es="Una casa para mirar de cerca el Chocó" data-en="A house to look closely at Chocó">Una casa para mirar de cerca el Chocó</h2>
+        <p data-es="Casa Fractal nace en Coquí, un pueblo del municipio de Nuquí, en el corazón del Pacífico colombiano. Soñamos un lugar donde la curiosidad fuera el motivo del viaje: la casa de las ciencias y los saberes, dedicada al turismo científico." data-en="Casa Fractal was born in Coquí, a village in the municipality of Nuquí, in the heart of the Colombian Pacific. We dreamed of a place where curiosity was the reason to travel: the house of sciences and knowledge, devoted to scientific tourism.">Casa Fractal nace en Coquí, un pueblo del municipio de Nuquí, en el corazón del Pacífico colombiano. Soñamos un lugar donde la curiosidad fuera el motivo del viaje: la casa de las ciencias y los saberes, dedicada al turismo científico.</p>
+        <p data-es="Aquí investigadores, viajeros, estudiantes y curiosos se encuentran con la comunidad local para aprender juntos. Entre la selva húmeda, el manglar y el mar, cada estadía es una invitación a observar el territorio con asombro y respeto." data-en="Here researchers, travelers, students and the curious meet the local community to learn together. Among the rainforest, the mangrove and the sea, every stay is an invitation to observe the territory with wonder and respect.">Aquí investigadores, viajeros, estudiantes y curiosos se encuentran con la comunidad local para aprender juntos. Entre la selva húmeda, el manglar y el mar, cada estadía es una invitación a observar el territorio con asombro y respeto.</p>
+        <p data-es="Como un fractal, este lugar revela patrones que se repiten a distintas escalas: de la raíz del mangle a la copa de los árboles, de la marea a las estrellas. Te invitamos a descubrirlos." data-en="Like a fractal, this place reveals patterns that repeat across scales: from the mangrove root to the treetops, from the tide to the stars. We invite you to discover them.">Como un fractal, este lugar revela patrones que se repiten a distintas escalas: de la raíz del mangle a la copa de los árboles, de la marea a las estrellas. Te invitamos a descubrirlos.</p>
+      </div>
+      <div class="figure reveal"><img src="img/casa-fachada.jpg" alt="Casa Fractal en Coquí, rodeada de selva" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<div class="fractal-divider">
+  <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg" stroke="#3C6E71" stroke-width="2.4" fill="none" stroke-linecap="round">
+    <path d="M50 80 L50 40 M50 40 L30 20 M50 40 L70 20 M30 20 L20 8 M30 20 L40 6 M70 20 L60 6 M70 20 L80 8 M50 40 L50 12"/>
+  </svg>
+</div>
+
+<!-- EXPERIENCIAS -->
+<section class="section experiencias" id="experiencias">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow" data-es="Turismo científico" data-en="Scientific tourism">Turismo científico</p>
+      <h2 data-es="Experiencias para observar y aprender" data-en="Experiences to observe and learn">Experiencias para observar y aprender</h2>
+      <p data-es="Cada experiencia se vive al ritmo de la marea y del territorio, acompañada por la mirada científica y los saberes de la comunidad de Coquí." data-en="Each experience unfolds at the rhythm of the tide and the territory, guided by a scientific eye and the knowledge of the Coquí community.">Cada experiencia se vive al ritmo de la marea y del territorio, acompañada por la mirada científica y los saberes de la comunidad de Coquí.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="figure"><img src="img/playa-atardecer.jpg" alt="Costa del Pacífico al atardecer" loading="lazy"></div>
+        <div class="card-body">
+          <h3 data-es="Avistamiento de ballenas" data-en="Whale watching">Avistamiento de ballenas</h3>
+          <p data-es="Entre julio y octubre las ballenas jorobadas llegan al Pacífico a parir y cortejar. Observación responsable acompañada por guías locales." data-en="From July to October humpback whales arrive in the Pacific to give birth and court. Responsible observation guided by local experts.">Entre julio y octubre las ballenas jorobadas llegan al Pacífico a parir y cortejar. Observación responsable acompañada por guías locales.</p>
         </div>
-    </section>
-
-    <!-- LA EXPERIENCIA -->
-    <section id="experiencia" class="experiencia-section">
-        <div class="container grid-2">
-            <div class="text-block">
-                <span class="subtitle">Bienvenidos</span>
-                <h2>Siente el ritmo de la naturaleza</h2>
-                <p>Casa Fractal nació para viajeros que buscan algo más que un lugar donde dormir. Un espacio diseñado para la desconexión digital, el respeto por el entorno local y la integración armónica con el ecosistema de selva y océano que nos rodea.</p>
-            </div>
-            <div class="img-block">
-                <div class="image-placeholder">
-                    <span>[ Foto de la Atmósfera / Áreas Comunes ]<br>Reemplazar con una etiqueta &lt;img&gt; cuando subas tus fotos</span>
-                </div>
-            </div>
+      </article>
+      <article class="card reveal">
+        <div class="figure"><img src="img/manglar.jpg" alt="Raíces de manglar reflejadas en el agua" loading="lazy"></div>
+        <div class="card-body">
+          <h3 data-es="Recorridos por el manglar" data-en="Mangrove tours">Recorridos por el manglar</h3>
+          <p data-es="Navega entre las raíces del manglar, un ecosistema vital donde nace buena parte de la vida del Pacífico. Un laboratorio natural al alcance de la mano." data-en="Navigate among the mangrove roots, a vital ecosystem where much of the Pacific's life begins. A natural laboratory within reach.">Navega entre las raíces del manglar, un ecosistema vital donde nace buena parte de la vida del Pacífico. Un laboratorio natural al alcance de la mano.</p>
         </div>
-    </section>
-
-    <!-- HABITACIONES / ESPACIOS -->
-    <section id="habitaciones" class="rooms-section">
-        <div class="container">
-            <h2 class="section-title">Nuestros Espacios</h2>
-            <div class="rooms-grid">
-                
-                <!-- Dormitorio Compartido -->
-                <div class="room-card">
-                    <div class="image-placeholder card-img">
-                        <span>[ Foto Dormitorio Compartido ]<br>Listo para tu imagen de habitaciones</span>
-                    </div>
-                    <div class="room-info">
-                        <h3>Dormitorio Compartido</h3>
-                        <p>Lockers privados, cortinas de privacidad individuales, ventilación natural cruzada y tomas de corriente dedicadas.</p>
-                        <span class="price">Atmósfera comunitaria</span>
-                    </div>
-                </div>
-
-                <!-- Habitación Privada -->
-                <div class="room-card">
-                    <div class="image-placeholder card-img">
-                        <span>[ Foto Suite Privada ]<br>Listo para tu imagen de suite</span>
-                    </div>
-                    <div class="room-info">
-                        <h3>Suite Privada</h3>
-                        <p>Cama King size, baño privado, terraza exterior privada con vista al dosel de la selva y sonido del mar.</p>
-                        <span class="price">Máximo confort orgánico</span>
-                    </div>
-                </div>
-
-            </div>
+      </article>
+      <article class="card reveal">
+        <div class="figure"><img src="img/manglar-arboles.jpg" alt="Árboles del bosque húmedo tropical" loading="lazy"></div>
+        <div class="card-body">
+          <h3 data-es="Selva y biodiversidad" data-en="Rainforest & biodiversity">Selva y biodiversidad</h3>
+          <p data-es="Caminatas interpretativas por el bosque húmedo tropical: anfibios, insectos, plantas y los patrones de uno de los lugares más biodiversos del planeta." data-en="Interpretive hikes through the tropical rainforest: amphibians, insects, plants and the patterns of one of the most biodiverse places on Earth.">Caminatas interpretativas por el bosque húmedo tropical: anfibios, insectos, plantas y los patrones de uno de los lugares más biodiversos del planeta.</p>
         </div>
-    </section>
-
-    <!-- UBICACIÓN Y CONTACTO -->
-    <section id="ubicacion" class="location-section">
-        <div class="container grid-2">
-            <div class="map-block">
-                <div class="image-placeholder map-img">
-                    <span>[ Mapa de Google Maps ]<br>Aquí podrás incrustar el mapa interactivo de Coquí</span>
-                </div>
-            </div>
-            <div class="text-block" id="contacto">
-                <h2>El Retorno al Origen</h2>
-                <p>Estamos ubicados en un punto privilegiado donde la densidad de la selva toca las olas del mar. Un entorno místico perfecto para avistamiento de fauna, caminatas conscientes o simplemente contemplar el océano.</p>
-                <ul class="tips-lista">
-                    <li><strong>Coordenadas:</strong> Sector de Coquí, Nuquí, Chocó.</li>
-                    <li><strong>Cómo llegar:</strong> Coordinamos tu traslado en lancha local desde el aeropuerto/puerto principal.</li>
-                </ul>
-                <!-- Reemplaza TUNUMERO abajo con tu celular real (ej: 573001234567) -->
-                <a href="https://wa.me/TUNUMERO?text=Hola%20Casa%20Fractal,%20me%20gustaría%20consultar%20disponibilidad" target="_blank" class="btn-whatsapp">Escríbenos por WhatsApp</a>
-            </div>
+      </article>
+      <article class="card reveal">
+        <div class="figure"><img src="img/familia-playa.jpg" alt="Caminata por la playa de Coquí" loading="lazy"></div>
+        <div class="card-body">
+          <h3 data-es="Observación de aves" data-en="Birdwatching">Observación de aves</h3>
+          <p data-es="El Chocó es un paraíso para el pajareo. Recorridos al amanecer para descubrir especies endémicas entre la playa, el estero y la selva." data-en="Chocó is a birding paradise. Dawn outings to discover endemic species across the beach, the estuary and the rainforest.">El Chocó es un paraíso para el pajareo. Recorridos al amanecer para descubrir especies endémicas entre la playa, el estero y la selva.</p>
         </div>
-    </section>
+      </article>
+      <article class="card reveal">
+        <div class="figure"><img src="img/estero-reflejo.jpg" alt="Estero al atardecer reflejando el cielo" loading="lazy"></div>
+        <div class="card-body">
+          <h3 data-es="Cielo, marea y estero" data-en="Sky, tide & estuary">Cielo, marea y estero</h3>
+          <p data-es="Lejos de la contaminación lumínica, el cielo de Coquí se abre para la observación astronómica, mientras la marea dibuja cada día un paisaje distinto en el estero." data-en="Far from light pollution, the Coquí sky opens up for stargazing, while the tide draws a different landscape in the estuary each day.">Lejos de la contaminación lumínica, el cielo de Coquí se abre para la observación astronómica, mientras la marea dibuja cada día un paisaje distinto en el estero.</p>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="figure"><img src="img/llegada-lancha.jpg" alt="Llegada en lancha a la costa de Coquí" loading="lazy"></div>
+        <div class="card-body">
+          <h3 data-es="Saberes locales" data-en="Local knowledge">Saberes locales</h3>
+          <p data-es="Encuentros con sabedoras y sabedores del territorio: pesca artesanal, medicina tradicional, cocina y memoria viva del Pacífico chocoano." data-en="Gatherings with the territory's knowledge keepers: artisanal fishing, traditional medicine, cuisine and the living memory of the Chocó Pacific.">Encuentros con sabedoras y sabedores del territorio: pesca artesanal, medicina tradicional, cocina y memoria viva del Pacífico chocoano.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 Casa Fractal. Diseñado con alma viajera.</p>
-    </footer>
+<!-- ALOJAMIENTO -->
+<section class="section aloja" id="alojamiento">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow" data-es="Alojamiento" data-en="Stay">Alojamiento</p>
+      <h2 data-es="Tu descanso, rodeado de naturaleza" data-en="Your rest, surrounded by nature">Tu descanso, rodeado de naturaleza</h2>
+      <p data-es="Espacios sencillos y cómodos, diseñados en armonía con el entorno: ventilación natural, energía solar, toldillo y el sonido del mar y la selva como banda sonora." data-en="Simple, comfortable spaces designed in harmony with the surroundings: natural ventilation, solar power, mosquito nets and the sound of the sea and rainforest as a soundtrack.">Espacios sencillos y cómodos, diseñados en armonía con el entorno: ventilación natural, energía solar, toldillo y el sonido del mar y la selva como banda sonora.</p>
+    </div>
+    <div class="rooms">
+      <div class="room reveal">
+        <div class="figure"><img src="img/habitacion.jpg" alt="Habitación con toldillo y ventana a la selva" loading="lazy"></div>
+        <h3 data-es="Habitaciones con toldillo" data-en="Rooms with mosquito nets">Habitaciones con toldillo</h3>
+        <p data-es="Camas amplias con toldillo y ventanas abiertas a la selva. Frescas, tranquilas y pensadas para un descanso profundo." data-en="Spacious beds with mosquito nets and windows open to the rainforest. Cool, quiet and made for deep rest.">Camas amplias con toldillo y ventanas abiertas a la selva. Frescas, tranquilas y pensadas para un descanso profundo.</p>
+      </div>
+      <div class="room reveal">
+        <div class="figure"><img src="img/terraza-hamacas.jpg" alt="Terraza con hamacas y zona social" loading="lazy"></div>
+        <h3 data-es="Terraza y zona social" data-en="Terrace & social area">Terraza y zona social</h3>
+        <p data-es="Una galería con hamacas y mesa común para compartir, leer, conversar o simplemente dejar pasar la tarde frente al verde." data-en="A veranda with hammocks and a shared table to gather, read, talk or simply let the afternoon go by facing the green.">Una galería con hamacas y mesa común para compartir, leer, conversar o simplemente dejar pasar la tarde frente al verde.</p>
+      </div>
+      <div class="room reveal">
+        <div class="figure"><img src="img/casa-aerea.jpg" alt="Vista aérea de Casa Fractal entre la selva" loading="lazy"></div>
+        <h3 data-es="Entre selva y playa" data-en="Between jungle and beach">Entre selva y playa</h3>
+        <p data-es="La casa se esconde entre los árboles, a pocos pasos de la playa. Energía solar 24/7 y la naturaleza como única vecina." data-en="The house hides among the trees, steps from the beach. 24/7 solar power and nature as the only neighbour.">La casa se esconde entre los árboles, a pocos pasos de la playa. Energía solar 24/7 y la naturaleza como única vecina.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- GASTRONOMÍA -->
+<section class="section gastro" id="gastronomia">
+  <div class="wrap">
+    <div class="grid">
+      <div class="figure reveal"><img src="img/terraza-hamacas.jpg" alt="Mesa común en la terraza de Casa Fractal" loading="lazy"></div>
+      <div class="reveal">
+        <p class="eyebrow" data-es="Cocina del Pacífico" data-en="Pacific cuisine">Cocina del Pacífico</p>
+        <h2 data-es="Sabores con alma de territorio" data-en="Flavors with the soul of the territory">Sabores con alma de territorio</h2>
+        <p data-es="Pescado fresco del día, coco, plátano y los sabores de las raíces afro, indígenas y mestizas del Chocó. Nuestras cocineras y cocineros locales preparan cada plato con tradición y cariño." data-en="Fresh catch of the day, coconut, plantain and the flavors of the Afro, Indigenous and mestizo roots of Chocó. Our local cooks prepare every dish with tradition and care.">Pescado fresco del día, coco, plátano y los sabores de las raíces afro, indígenas y mestizas del Chocó. Nuestras cocineras y cocineros locales preparan cada plato con tradición y cariño.</p>
+        <p data-es="Comer en Casa Fractal también es aprender: cada preparación cuenta la historia de un territorio que cocina con lo que le da el mar, el río y la huerta." data-en="Eating at Casa Fractal is also learning: each dish tells the story of a territory that cooks with what the sea, the river and the garden provide.">Comer en Casa Fractal también es aprender: cada preparación cuenta la historia de un territorio que cocina con lo que le da el mar, el río y la huerta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="section galeria" id="galeria">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow" data-es="Galería" data-en="Gallery">Galería</p>
+      <h2 data-es="Coquí en imágenes" data-en="Coquí in pictures">Coquí en imágenes</h2>
+    </div>
+    <div class="gal-grid">
+      <div class="figure tall reveal"><img src="img/manglar-arboles.jpg" alt="Bosque de manglar" loading="lazy"></div>
+      <div class="figure wide reveal"><img src="img/playa-rio-aerea.jpg" alt="Desembocadura del río en la playa, vista aérea" loading="lazy"></div>
+      <div class="figure reveal"><img src="img/playa-tronco.jpg" alt="Tronco en la playa de Coquí" loading="lazy"></div>
+      <div class="figure reveal"><img src="img/estero-reflejo.jpg" alt="Reflejo del cielo en el estero" loading="lazy"></div>
+      <div class="figure wide reveal"><img src="img/costa-aerea.jpg" alt="Costa y selva del Pacífico, vista aérea" loading="lazy"></div>
+      <div class="figure reveal"><img src="img/playa-atardecer.jpg" alt="Playa al atardecer" loading="lazy"></div>
+      <div class="figure reveal"><img src="img/familia-playa.jpg" alt="Caminata familiar por la playa" loading="lazy"></div>
+      <div class="figure reveal"><img src="img/manglar.jpg" alt="Raíces de manglar" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO LLEGAR -->
+<section class="section llegar" id="llegar">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal">
+        <p class="eyebrow" data-es="Cómo llegar" data-en="Getting here">Cómo llegar</p>
+        <h2 data-es="Llegar a Coquí" data-en="Reaching Coquí">Llegar a Coquí</h2>
+        <p data-es="Coquí es un corregimiento de Nuquí, en el Pacífico colombiano. El viaje es parte de la experiencia y nosotros te acompañamos en cada paso." data-en="Coquí is a hamlet of Nuquí, on the Colombian Pacific. The journey is part of the experience and we accompany you at every step.">Coquí es un corregimiento de Nuquí, en el Pacífico colombiano. El viaje es parte de la experiencia y nosotros te acompañamos en cada paso.</p>
+        <ol>
+          <li data-es="Vuelo hasta Nuquí desde Medellín o Quibdó." data-en="Flight to Nuquí from Medellín or Quibdó.">Vuelo hasta Nuquí desde Medellín o Quibdó.</li>
+          <li data-es="Desde Nuquí, traslado en lancha hasta Coquí (aprox. 30–40 minutos por el Pacífico)." data-en="From Nuquí, boat transfer to Coquí (approx. 30–40 minutes along the Pacific).">Desde Nuquí, traslado en lancha hasta Coquí (aprox. 30–40 minutos por el Pacífico).</li>
+          <li data-es="Te recibimos en Casa Fractal. Escríbenos por WhatsApp y coordinamos contigo los traslados y las fechas." data-en="We welcome you at Casa Fractal. Write to us on WhatsApp and we'll arrange transfers and dates with you.">Te recibimos en Casa Fractal. Escríbenos por WhatsApp y coordinamos contigo los traslados y las fechas.</li>
+        </ol>
+      </div>
+      <div class="figure reveal"><img src="img/playa-rio-aerea.jpg" alt="Vista aérea de la costa de Coquí" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="section contacto" id="contacto">
+  <div class="wrap">
+    <p class="eyebrow" data-es="Reserva" data-en="Book">Reserva</p>
+    <h2 data-es="Vive Casa Fractal" data-en="Experience Casa Fractal">Vive Casa Fractal</h2>
+    <p data-es="Escríbenos por WhatsApp y te ayudamos a planear tu viaje de turismo científico al Pacífico colombiano." data-en="Write to us on WhatsApp and we'll help you plan your scientific tourism trip to the Colombian Pacific.">Escríbenos por WhatsApp y te ayudamos a planear tu viaje de turismo científico al Pacífico colombiano.</p>
+    <a class="btn-solid wa-link" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      <span data-es="Reservar por WhatsApp" data-en="Book via WhatsApp">Reservar por WhatsApp</span>
+    </a>
+    <div class="contact-meta">
+      <div>
+        <strong data-es="Ubicación" data-en="Location">Ubicación</strong>
+        Coquí · Nuquí · Chocó, Colombia
+      </div>
+      <div>
+        <strong>WhatsApp</strong>
+        <a class="wa-link" href="#" target="_blank" rel="noopener">+57 304 666 6268</a>
+      </div>
+      <div>
+        <strong>Email</strong>
+        <a href="mailto:casafractalnuqui@gmail.com">casafractalnuqui@gmail.com</a>
+      </div>
+      <div>
+        <strong>Instagram</strong>
+        <a href="https://www.instagram.com/casafractalnuqui/" target="_blank" rel="noopener">@casafractalnuqui</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <img src="logo-blanco.png" alt="Casa Fractal">
+      <div class="socials">
+        <a href="https://www.instagram.com/casafractalnuqui/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.05.41 2.22.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.22-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.9.07s-3.63 0-4.9-.07c-1.17-.05-1.8-.25-2.22-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.05-.41-2.22C2.21 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.22.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.05-.36 2.22-.41C8.42 2.21 8.8 2.2 12 2.2zm0 1.62c-3.14 0-3.51.01-4.75.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71-.06 1.24-.07 1.61-.07 4.75s.01 3.51.07 4.75c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.75s-.01-3.51-.07-4.75c-.04-.9-.19-1.39-.32-1.71a2.86 2.86 0 00-.69-1.06 2.86 2.86 0 00-1.06-.69c-.32-.13-.81-.28-1.71-.32-1.24-.06-1.61-.07-4.75-.07zm0 2.76a5.42 5.42 0 110 10.84 5.42 5.42 0 010-10.84zm0 1.62a3.8 3.8 0 100 7.6 3.8 3.8 0 000-7.6zm5.6-.16a1.27 1.27 0 11-2.54 0 1.27 1.27 0 012.54 0z"/></svg></a>
+        <a href="mailto:casafractalnuqui@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M2 4h20a1 1 0 011 1v14a1 1 0 01-1 1H2a1 1 0 01-1-1V5a1 1 0 011-1zm10 7L3.5 6h17L12 11zm0 2L3 7.2V18h18V7.2L12 13z"/></svg></a>
+        <a href="#" class="wa-link" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-es="© 2026 Casa Fractal · Coquí · Chocó. Todos los derechos reservados." data-en="© 2026 Casa Fractal · Coquí · Chocó. All rights reserved.">© 2026 Casa Fractal · Coquí · Chocó. Todos los derechos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a class="wa-float wa-link" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<script>
+const WHATSAPP_NUMERO = "573046666268";  // +57 304 666 6268
+const WA_MSG = {
+  es: "Hola Casa Fractal, quiero información para reservar.",
+  en: "Hello Casa Fractal, I'd like information to make a booking."
+};
+function buildWaLinks(lang){
+  const url = "https://wa.me/" + WHATSAPP_NUMERO + "?text=" + encodeURIComponent(WA_MSG[lang] || WA_MSG.es);
+  document.querySelectorAll(".wa-link").forEach(a => a.setAttribute("href", url));
+}
+function setLang(lang){
+  document.documentElement.lang = lang;
+  document.getElementById("btn-es").classList.toggle("active", lang === "es");
+  document.getElementById("btn-en").classList.toggle("active", lang === "en");
+  try { localStorage.setItem("casafractal_lang", lang); } catch(e){}
+  buildWaLinks(lang);
+}
+(function initLang(){
+  let saved = "es";
+  try { saved = localStorage.getItem("casafractal_lang") || "es"; } catch(e){}
+  setLang(saved);
+})();
+const header = document.getElementById("header");
+window.addEventListener("scroll", () => header.classList.toggle("scrolled", window.scrollY > 40));
+const hamb = document.getElementById("hamb"), navMobile = document.getElementById("navMobile");
+hamb.addEventListener("click", () => { hamb.classList.toggle("open"); navMobile.classList.toggle("open"); });
+navMobile.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { hamb.classList.remove("open"); navMobile.classList.remove("open"); }));
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
 </body>
 </html>
