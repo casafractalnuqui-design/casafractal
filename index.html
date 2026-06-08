@@ -81,7 +81,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 
 /* figuras */
 .figure{position:relative;border-radius:var(--r);overflow:hidden;background:var(--niebla)}
-.figure img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.figure img{width:100%;height:auto;display:block;transition:transform .8s ease}
 .figure:hover img{transform:scale(1.04)}
 
 /* HISTORIA */
@@ -89,7 +89,6 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 .intro .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
 .intro h2{font-size:clamp(1.9rem,3.6vw,2.9rem);margin-bottom:1.3rem;color:var(--petroleo)}
 .intro p{color:var(--tenue);margin-bottom:1rem;font-size:1.05rem}
-.intro .figure{min-height:440px}
 
 /* EXPERIENCIAS */
 .experiencias{background:var(--abismo);color:var(--bruma)}
@@ -99,16 +98,16 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
 .card{background:#0a2530;border:1px solid #163642;border-radius:var(--r);overflow:hidden;transition:transform .4s,border-color .4s;display:flex;flex-direction:column}
 .card:hover{transform:translateY(-6px);border-color:var(--teal)}
-.card .figure{height:210px;border-radius:0}
-.card-body{padding:1.6rem}
-.card h3{font-size:1.3rem;margin-bottom:.6rem;color:var(--salvia)}
-.card p{color:#9fb0b2;font-size:.95rem}
+.card .figure{border-radius:0}
+.card-body{padding:1rem 1.4rem}
+.card h3{font-size:1.3rem;margin-bottom:0;color:var(--salvia)}
 
 /* GALERÍA */
 .galeria{background:var(--bruma)}
 .galeria h2{font-size:clamp(1.9rem,3.6vw,2.9rem);color:var(--petroleo)}
-.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:1rem;margin-top:2.5rem}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:1rem;margin-top:2.5rem}
 .gal-grid .figure{height:100%}
+.gal-grid .figure img{height:100%;object-fit:cover}
 .gal-grid .tall{grid-row:span 2}
 .gal-grid .wide{grid-column:span 2}
 
@@ -117,7 +116,6 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 .aloja h2{font-size:clamp(1.9rem,3.6vw,2.9rem);color:var(--bruma)}
 .aloja .sec-head p{color:#c3d3d5}
 .rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-.room .figure{height:250px}
 .room h3{margin:1rem 0 .4rem;font-size:1.25rem;color:var(--salvia)}
 .room p{color:#c3d3d5;font-size:.92rem}
 
@@ -126,7 +124,6 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 .gastro .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
 .gastro h2{font-size:clamp(1.9rem,3.6vw,2.9rem);margin-bottom:1.2rem}
 .gastro p{color:#e9f1ec;font-size:1.05rem;margin-bottom:1rem}
-.gastro .figure{min-height:380px}
 
 /* CÓMO LLEGAR */
 .llegar{background:var(--bruma)}
@@ -135,7 +132,6 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 .llegar p{color:var(--tenue);margin-bottom:1rem}
 .llegar ol{color:var(--tenue);padding-left:1.2rem;margin-top:1rem}
 .llegar li{margin-bottom:.6rem}
-.llegar .figure{min-height:420px}
 
 /* CONTACTO */
 .contacto{background:var(--abismo);color:var(--bruma);text-align:center}
@@ -166,17 +162,13 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:none}
 
-/* i18n */
-[data-en]{display:none}
-html[lang="en"] [data-es]{display:none}
-html[lang="en"] [data-en]{display:revert}
+/* i18n: el cambio de idioma se hace con JS (ver setLang) */
 
 /* responsive */
 @media(max-width:980px){
   .cards,.rooms{grid-template-columns:repeat(2,1fr)}
   .gal-grid{grid-template-columns:repeat(3,1fr)}
   .intro .grid,.gastro .grid,.llegar .grid{grid-template-columns:1fr}
-  .intro .figure,.gastro .figure,.llegar .figure{min-height:300px}
 }
 @media(max-width:720px){
   .nav-desktop{display:none}
@@ -282,42 +274,36 @@ html[lang="en"] [data-en]{display:revert}
         <div class="figure"><img src="img/boca1.JPG" alt="Costa del Pacífico al atardecer" loading="lazy"></div>
         <div class="card-body">
           <h3 data-es="Avistamiento de ballenas" data-en="Whale watching">Avistamiento de ballenas</h3>
-          <p data-es="Entre julio y octubre las ballenas jorobadas llegan al Pacífico a parir y cortejar. Observación responsable acompañada por guías locales." data-en="From July to October humpback whales arrive in the Pacific to give birth and court. Responsible observation guided by local experts.">Entre julio y octubre las ballenas jorobadas llegan al Pacífico a parir y cortejar. Observación responsable acompañada por guías locales.</p>
         </div>
       </article>
       <article class="card reveal">
         <div class="figure"><img src="img/manglar2.jpg" alt="Raíces de manglar reflejadas en el agua" loading="lazy"></div>
         <div class="card-body">
           <h3 data-es="Recorridos por el manglar" data-en="Mangrove tours">Recorridos por el manglar</h3>
-          <p data-es="Navega entre las raíces del manglar, un ecosistema vital donde nace buena parte de la vida del Pacífico. Un laboratorio natural al alcance de la mano." data-en="Navigate among the mangrove roots, a vital ecosystem where much of the Pacific's life begins. A natural laboratory within reach.">Navega entre las raíces del manglar, un ecosistema vital donde nace buena parte de la vida del Pacífico. Un laboratorio natural al alcance de la mano.</p>
         </div>
       </article>
       <article class="card reveal">
         <div class="figure"><img src="img/arena1.JPG" alt="Árboles del bosque húmedo tropical" loading="lazy"></div>
         <div class="card-body">
           <h3 data-es="Selva y biodiversidad" data-en="Rainforest & biodiversity">Selva y biodiversidad</h3>
-          <p data-es="Caminatas interpretativas por el bosque húmedo tropical: anfibios, insectos, plantas y los patrones de uno de los lugares más biodiversos del planeta." data-en="Interpretive hikes through the tropical rainforest: amphibians, insects, plants and the patterns of one of the most biodiverse places on Earth.">Caminatas interpretativas por el bosque húmedo tropical: anfibios, insectos, plantas y los patrones de uno de los lugares más biodiversos del planeta.</p>
         </div>
       </article>
       <article class="card reveal">
         <div class="figure"><img src="img/familia-playa.JPG" alt="Caminata por la playa de Coquí" loading="lazy"></div>
         <div class="card-body">
           <h3 data-es="Observación de aves" data-en="Birdwatching">Observación de aves</h3>
-          <p data-es="El Chocó es un paraíso para el pajareo. Recorridos al amanecer para descubrir especies endémicas entre la playa, el estero y la selva." data-en="Chocó is a birding paradise. Dawn outings to discover endemic species across the beach, the estuary and the rainforest.">El Chocó es un paraíso para el pajareo. Recorridos al amanecer para descubrir especies endémicas entre la playa, el estero y la selva.</p>
         </div>
       </article>
       <article class="card reveal">
         <div class="figure"><img src="img/comida1.JPG" alt="Estero al atardecer reflejando el cielo" loading="lazy"></div>
         <div class="card-body">
           <h3 data-es="Cielo, marea y estero" data-en="Sky, tide & estuary">Cielo, marea y estero</h3>
-          <p data-es="Lejos de la contaminación lumínica, el cielo de Coquí se abre para la observación astronómica, mientras la marea dibuja cada día un paisaje distinto en el estero." data-en="Far from light pollution, the Coquí sky opens up for stargazing, while the tide draws a different landscape in the estuary each day.">Lejos de la contaminación lumínica, el cielo de Coquí se abre para la observación astronómica, mientras la marea dibuja cada día un paisaje distinto en el estero.</p>
         </div>
       </article>
       <article class="card reveal">
         <div class="figure"><img src="img/boca1.JPG" alt="Llegada en lancha a la costa de Coquí" loading="lazy"></div>
         <div class="card-body">
           <h3 data-es="Saberes locales" data-en="Local knowledge">Saberes locales</h3>
-          <p data-es="Encuentros con sabedoras y sabedores del territorio: pesca artesanal, medicina tradicional, cocina y memoria viva del Pacífico chocoano." data-en="Gatherings with the territory's knowledge keepers: artisanal fishing, traditional medicine, cuisine and the living memory of the Chocó Pacific.">Encuentros con sabedoras y sabedores del territorio: pesca artesanal, medicina tradicional, cocina y memoria viva del Pacífico chocoano.</p>
         </div>
       </article>
     </div>
@@ -473,6 +459,10 @@ function setLang(lang){
   document.documentElement.lang = lang;
   document.getElementById("btn-es").classList.toggle("active", lang === "es");
   document.getElementById("btn-en").classList.toggle("active", lang === "en");
+  // Intercambiar texto visible en todos los elementos con data-es/data-en
+  document.querySelectorAll("[data-es][data-en]").forEach(function(el){
+    el.textContent = el.getAttribute("data-" + lang);
+  });
   try { localStorage.setItem("casafractal_lang", lang); } catch(e){}
   buildWaLinks(lang);
 }
