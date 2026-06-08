@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa Fractal Nuquí</title>
+    <title>Casa Fractal | Refugio de Selva y Mar</title>
+    <!-- Google Fonts: Combinación premium con serifas elegantes y sans-serif limpio -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <style>
+        /* ==========================================================================
+           ESTILOS VISUALES (Antes en style.css, ahora unificados para tu comodidad)
+           ========================================================================== */
         :root {
             --primary: #1e3932;       /* Verde selva profundo */
             --accent: #d37a53;        /* Terracota / Tierra cálida */
@@ -20,7 +26,7 @@
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
             background-color: #ffffff;
@@ -32,105 +38,258 @@
             margin: 0 auto;
         }
 
-        header {
-            padding: 25px 0;
-            background-color: #ffffff;
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
             color: var(--primary);
+        }
+
+        /* Menú de Navegación */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
             letter-spacing: 2px;
         }
 
+        .nav-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn-nav {
+            background-color: var(--primary);
+            color: white !important;
+            padding: 8px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--accent);
+        }
+
+        /* Hero Section */
         .hero {
-            padding: 100px 0;
+            padding: 140px 0;
             text-align: center;
-            background: linear-gradient(180deg, #ffffff 0%, var(--bg-light) 100%);
+            background: linear-gradient(rgba(30, 57, 50, 0.2), rgba(30, 57, 50, 0.4)), linear-gradient(180deg, #ffffff 0%, var(--bg-light) 100%);
+            background-size: cover;
+            background-position: center;
         }
 
-        .hero h1 {
-            font-size: 3.2rem;
-            color: var(--primary);
+        .hero-content h1 {
+            font-size: 3.5rem;
             margin-bottom: 20px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .hero p {
+        .hero-content p {
             font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 650px;
+            color: var(--text-dark);
+            max-width: 600px;
             margin: 0 auto 35px auto;
         }
 
-        .btn {
+        .btn-main {
             display: inline-block;
-            background-color: var(--primary);
+            background-color: var(--accent);
             color: white;
             padding: 14px 36px;
             text-decoration: none;
-            border-radius: 4px; /* Diseño más ortogonal y arquitectónico */
+            border-radius: 4px;
             font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: background-color 0.2s, transform 0.2s;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
-        .btn:hover {
-            background-color: var(--accent);
+        .btn-main:hover {
+            background-color: #be6640;
             transform: translateY(-1px);
         }
 
-        .features {
-            padding: 80px 0;
+        /* Secciones Generales */
+        .experiencia-section, .rooms-section, .location-section {
+            padding: 100px 0;
+        }
+
+        .experiencia-section {
             background-color: #ffffff;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 20px;
-        }
-
-        .card {
-            background: var(--bg-light);
-            padding: 40px 30px;
-            border-radius: 4px;
-            border-top: 3px solid var(--primary);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(30, 57, 50, 0.08);
-            border-top-color: var(--accent);
-        }
-
-        .card h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.35rem;
+        .subtitle {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 10px;
             font-weight: 600;
         }
 
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+        .text-block h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
 
+        .text-block p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* Marcadores de posición para imágenes (Placeholders) */
+        .image-placeholder {
+            background-color: var(--bg-light);
+            border: 1px dashed var(--text-muted);
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        /* Espacios / Habitaciones */
+        .rooms-section {
+            background-color: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+        }
+
+        .room-card {
+            background-color: #ffffff;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .room-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 280px;
+            border: none;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .room-info {
+            padding: 30px;
+        }
+
+        .room-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .room-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Ubicación y Contacto */
+        .location-section {
+            background-color: #ffffff;
+        }
+
+        .map-img {
+            height: 400px;
+        }
+
+        .tips-lista {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .tips-lista li {
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .tips-lista li::before {
+            content: "•";
+            color: var(--accent);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -4px;
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            background-color: #25d366;
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebd58;
+        }
+
+        /* Footer */
         footer {
             background-color: var(--primary);
             color: var(--bg-light);
             text-align: center;
-            padding: 50px 0;
+            padding: 40px 0;
         }
 
         footer p {
@@ -139,59 +298,115 @@
             letter-spacing: 0.5px;
         }
 
+        /* Responsivo (Celulares) */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.4rem; }
-            .hero p { font-size: 1.1rem; }
-            .features-grid { grid-template-columns: 1fr; }
+            .grid-2 { grid-template-columns: 1fr; gap: 30px; }
+            .navbar { flex-direction: column; gap: 15px; text-align: center; }
+            .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .nav-links a { margin: 0 5px; }
+            .hero { padding: 80px 0; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .rooms-grid { grid-template-columns: 1fr; }
+            .experiencia-section, .rooms-section, .location-section { padding: 60px 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Encabezado -->
-    <header>
-        <div class="container">
-            <div class="logo">CASA FRACTAL</div>
-        </div>
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <header class="navbar">
+        <div class="logo">CASA FRACTAL</div>
+        <nav class="nav-links">
+            <a href="#experiencia">La Experiencia</a>
+            <a href="#habitaciones">Espacios</a>
+            <a href="#ubicacion">Ubicación</a>
+        </nav>
+        <a href="#contacto" class="btn-nav">Reservar</a>
     </header>
 
-    <!-- Sección Principal -->
+    <!-- HERO SECTION -->
     <section class="hero">
-        <div class="container">
-            <h1>Arquitectura, Entorno y Geometría</h1>
-            <p>Estamos conceptualizando un espacio consciente que dialoga con el territorio y la estructura fractal de la naturaleza. Muy pronto compartiremos el proyecto completo.</p>
-            <a href="mailto:hola@casafractalnuqui.com" class="btn">Hablemos del Proyecto</a>
+        <div class="hero-content">
+            <h1>Un refugio consciente entre la selva y el mar</h1>
+            <p>Descubre el equilibrio perfecto entre comunidad, desconexión y la magia del Pacífico.</p>
+            <a href="#contacto" class="btn-main">Explorar Disponibilidad</a>
         </div>
     </section>
 
-    <!-- Pilares del Estudio -->
-    <section class="features">
-        <div class="container">
-            <div class="features-grid">
-                <!-- Tarjeta 1 -->
-                <div class="card">
-                    <h3>Territorio</h3>
-                    <p>Diseño integrado y respetuoso, inspirado en las dinámicas orgánicas, la escala local y la riqueza del paisaje de Nuquí.</p>
-                </div>
-                <!-- Tarjeta 2 -->
-                <div class="card">
-                    <h3>Estructura</h3>
-                    <p>Exploración geométrica y volumétrica rigurosa para materializar espacios de alta coherencia formal y técnica.</p>
-                </div>
-                <!-- Tarjeta 3 -->
-                <div class="card">
-                    <h3>Sustentabilidad</h3>
-                    <p>Procesos constructivos y de diseño con propósito, optimizando recursos para un impacto positivo y consciente.</p>
+    <!-- LA EXPERIENCIA -->
+    <section id="experiencia" class="experiencia-section">
+        <div class="container grid-2">
+            <div class="text-block">
+                <span class="subtitle">Bienvenidos</span>
+                <h2>Siente el ritmo de la naturaleza</h2>
+                <p>Casa Fractal nació para viajeros que buscan algo más que un lugar donde dormir. Un espacio diseñado para la desconexión digital, el respeto por el entorno local y la integración armónica con el ecosistema de selva y océano que nos rodea.</p>
+            </div>
+            <div class="img-block">
+                <div class="image-placeholder">
+                    <span>[ Foto de la Atmósfera / Áreas Comunes ]<br>Reemplazar con una etiqueta &lt;img&gt; cuando subas tus fotos</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pie de página -->
-    <footer>
+    <!-- HABITACIONES / ESPACIOS -->
+    <section id="habitaciones" class="rooms-section">
         <div class="container">
-            <p>&copy; 2026 Casa Fractal Nuquí. Diseño y Arquitectura Consciente.</p>
+            <h2 class="section-title">Nuestros Espacios</h2>
+            <div class="rooms-grid">
+                
+                <!-- Dormitorio Compartido -->
+                <div class="room-card">
+                    <div class="image-placeholder card-img">
+                        <span>[ Foto Dormitorio Compartido ]<br>Listo para tu imagen de habitaciones</span>
+                    </div>
+                    <div class="room-info">
+                        <h3>Dormitorio Compartido</h3>
+                        <p>Lockers privados, cortinas de privacidad individuales, ventilación natural cruzada y tomas de corriente dedicadas.</p>
+                        <span class="price">Atmósfera comunitaria</span>
+                    </div>
+                </div>
+
+                <!-- Habitación Privada -->
+                <div class="room-card">
+                    <div class="image-placeholder card-img">
+                        <span>[ Foto Suite Privada ]<br>Listo para tu imagen de suite</span>
+                    </div>
+                    <div class="room-info">
+                        <h3>Suite Privada</h3>
+                        <p>Cama King size, baño privado, terraza exterior privada con vista al dosel de la selva y sonido del mar.</p>
+                        <span class="price">Máximo confort orgánico</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </section>
+
+    <!-- UBICACIÓN Y CONTACTO -->
+    <section id="ubicacion" class="location-section">
+        <div class="container grid-2">
+            <div class="map-block">
+                <div class="image-placeholder map-img">
+                    <span>[ Mapa de Google Maps ]<br>Aquí podrás incrustar el mapa interactivo de Coquí</span>
+                </div>
+            </div>
+            <div class="text-block" id="contacto">
+                <h2>El Retorno al Origen</h2>
+                <p>Estamos ubicados en un punto privilegiado donde la densidad de la selva toca las olas del mar. Un entorno místico perfecto para avistamiento de fauna, caminatas conscientes o simplemente contemplar el océano.</p>
+                <ul class="tips-lista">
+                    <li><strong>Coordenadas:</strong> Sector de Coquí, Nuquí, Chocó.</li>
+                    <li><strong>Cómo llegar:</strong> Coordinamos tu traslado en lancha local desde el aeropuerto/puerto principal.</li>
+                </ul>
+                <!-- Reemplaza TUNUMERO abajo con tu celular real (ej: 573001234567) -->
+                <a href="https://wa.me/TUNUMERO?text=Hola%20Casa%20Fractal,%20me%20gustaría%20consultar%20disponibilidad" target="_blank" class="btn-whatsapp">Escríbenos por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Casa Fractal. Diseñado con alma viajera.</p>
     </footer>
 
 </body>
