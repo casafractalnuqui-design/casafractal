@@ -3,38 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa Fractal</title>
+    <title>Casa Fractal Nuquí</title>
     <style>
+        :root {
+            --primary: #1e3932;       /* Verde selva profundo */
+            --accent: #d37a53;        /* Terracota / Tierra cálida */
+            --bg-light: #fdfbf7;      /* Arena suave / Off-white */
+            --text-dark: #222222;     /* Texto principal */
+            --text-muted: #6b7770;    /* Texto secundario sutil */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #ffffff;
         }
+
         .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            padding: 25px 0;
+            background-color: #ffffff;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        .hero {
+            padding: 100px 0;
             text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background: linear-gradient(180deg, #ffffff 0%, var(--bg-light) 100%);
         }
-        h1 {
-            color: #2c3e50;
+
+        .hero h1 {
+            font-size: 3.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
-        p {
-            font-size: 1.1em;
-            color: #7f8c8d;
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 35px auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 14px 36px;
+            text-decoration: none;
+            border-radius: 4px; /* Diseño más ortogonal y arquitectónico */
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .features {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--bg-light);
+            padding: 40px 30px;
+            border-radius: 4px;
+            border-top: 3px solid var(--primary);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(30, 57, 50, 0.08);
+            border-top-color: var(--accent);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.35rem;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: var(--bg-light);
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.4rem; }
+            .hero p { font-size: 1.1rem; }
+            .features-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Casa Fractal</h1>
-        <p>El sitio web está en construcción. ¡Pronto estará listo!</p>
-    </div>
+
+    <!-- Encabezado -->
+    <header>
+        <div class="container">
+            <div class="logo">CASA FRACTAL</div>
+        </div>
+    </header>
+
+    <!-- Sección Principal -->
+    <section class="hero">
+        <div class="container">
+            <h1>Arquitectura, Entorno y Geometría</h1>
+            <p>Estamos conceptualizando un espacio consciente que dialoga con el territorio y la estructura fractal de la naturaleza. Muy pronto compartiremos el proyecto completo.</p>
+            <a href="mailto:hola@casafractalnuqui.com" class="btn">Hablemos del Proyecto</a>
+        </div>
+    </section>
+
+    <!-- Pilares del Estudio -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <!-- Tarjeta 1 -->
+                <div class="card">
+                    <h3>Territorio</h3>
+                    <p>Diseño integrado y respetuoso, inspirado en las dinámicas orgánicas, la escala local y la riqueza del paisaje de Nuquí.</p>
+                </div>
+                <!-- Tarjeta 2 -->
+                <div class="card">
+                    <h3>Estructura</h3>
+                    <p>Exploración geométrica y volumétrica rigurosa para materializar espacios de alta coherencia formal y técnica.</p>
+                </div>
+                <!-- Tarjeta 3 -->
+                <div class="card">
+                    <h3>Sustentabilidad</h3>
+                    <p>Procesos constructivos y de diseño con propósito, optimizando recursos para un impacto positivo y consciente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Casa Fractal Nuquí. Diseño y Arquitectura Consciente.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
