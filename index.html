@@ -4,17 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casa Fractal · Coquí · Chocó — Turismo Científico en el Pacífico colombiano</title>
-<meta name="description" content="Casa Fractal, la casa de las ciencias y los saberes. Turismo científico en Coquí, Nuquí, Chocó, Pacífico colombiano.">
-
-<!-- ========================================================
-     CASA FRACTAL — index.html v2 (GitHub Pages)
-     Estructura de carpetas para subir al repositorio:
-       index.html
-       logo.png
-       logo-blanco.png
-       img/  (todas las fotos .JPG)
-     Datos ya configurados: WhatsApp, Instagram, email.
-     ======================================================== -->
+<meta name="description" content="Casa Fractal, la casa de las ciencias y los saberes. Turismo científico y biocultural en Coquí, Nuquí, Chocó, Pacífico colombiano.">
 
 <style>
 :root{
@@ -38,13 +28,11 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 .fractal-divider{display:flex;justify-content:center;padding:2.5rem 0;opacity:.5}
 .fractal-divider svg{width:64px;height:auto}
 
-/* HEADER siempre visible */
+/* HEADER sin logo (logo va en el hero) */
 .site-header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.55rem clamp(1.2rem,4vw,3rem);background:rgba(1,22,30,.92);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.18);transition:padding var(--transit)}
-.brand{display:flex;align-items:center;gap:.7rem}
-.brand img{height:48px;width:auto;transition:height var(--transit)}
-.site-header.scrolled .brand img{height:42px}
-.nav-desktop{display:flex;align-items:center;gap:1.7rem}
-.nav-desktop a{color:var(--bruma);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;position:relative;padding:.2rem 0;opacity:.9;transition:opacity .25s}
+.brand-text{color:var(--bruma);font-family:var(--display);font-size:1.1rem;letter-spacing:.08em;font-weight:400;opacity:.9}
+.nav-desktop{display:flex;align-items:center;gap:1.5rem}
+.nav-desktop a{color:var(--bruma);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;position:relative;padding:.2rem 0;opacity:.9;transition:opacity .25s}
 .nav-desktop a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1.5px;background:var(--salvia);transition:width .3s}
 .nav-desktop a:hover{opacity:1}
 .nav-desktop a:hover::after{width:100%}
@@ -63,14 +51,15 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 .nav-mobile.open{transform:translateX(0)}
 .nav-mobile a{color:var(--bruma);font-family:var(--display);font-size:1.6rem}
 
-/* HERO */
+/* HERO con logo grande */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;color:var(--bruma);overflow:hidden}
 .hero-media{position:absolute;inset:0;z-index:0;background:url('img/boca_aerea1.JPG') center/cover no-repeat;transform:scale(1.05);animation:slowzoom 18s ease-out forwards}
 @keyframes slowzoom{to{transform:scale(1)}}
 .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(1,22,30,.82) 0%,rgba(1,22,30,.45) 60%,rgba(1,22,30,.25) 100%)}
 .hero-content{position:relative;z-index:2;max-width:780px}
+.hero-logo{width:clamp(140px,22vw,220px);height:auto;margin-bottom:1.2rem;filter:brightness(0) invert(1);opacity:.92}
 .hero h1{font-size:clamp(2.5rem,6.3vw,5rem);margin:.4rem 0 1.4rem}
-.hero p{font-size:clamp(1.05rem,2vw,1.3rem);max-width:560px;color:#e3ede6;margin-bottom:2.2rem}
+.hero p{font-size:clamp(1.05rem,2vw,1.3rem);max-width:600px;color:#e3ede6;margin-bottom:2.2rem}
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
 .btn-ghost{border:1.5px solid var(--salvia);color:var(--bruma)!important;padding:.85rem 1.7rem;border-radius:30px;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;transition:.3s}
 .btn-ghost:hover{background:var(--salvia);color:var(--abismo)!important}
@@ -84,7 +73,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 .figure img{width:100%;height:auto;display:block;transition:transform .8s ease}
 .figure:hover img{transform:scale(1.04)}
 
-/* HISTORIA */
+/* PROPÓSITO */
 .intro{background:var(--bruma)}
 .intro .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
 .intro h2{font-size:clamp(1.9rem,3.6vw,2.9rem);margin-bottom:1.3rem;color:var(--petroleo)}
@@ -99,8 +88,9 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 .card{background:#0a2530;border:1px solid #163642;border-radius:var(--r);overflow:hidden;transition:transform .4s,border-color .4s;display:flex;flex-direction:column}
 .card:hover{transform:translateY(-6px);border-color:var(--teal)}
 .card .figure{border-radius:0}
-.card-body{padding:1rem 1.4rem}
-.card h3{font-size:1.3rem;margin-bottom:0;color:var(--salvia)}
+.card-body{padding:1.4rem 1.5rem}
+.card h3{font-size:1.2rem;margin-bottom:.6rem;color:var(--salvia)}
+.card p{color:#9fb0b2;font-size:.92rem;line-height:1.55}
 
 /* GALERÍA */
 .galeria{background:var(--bruma)}
@@ -119,11 +109,11 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 .room h3{margin:1rem 0 .4rem;font-size:1.25rem;color:var(--salvia)}
 .room p{color:#c3d3d5;font-size:.92rem}
 
-/* GASTRONOMÍA */
-.gastro{background:var(--teal);color:#fff}
-.gastro .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
-.gastro h2{font-size:clamp(1.9rem,3.6vw,2.9rem);margin-bottom:1.2rem}
-.gastro p{color:#e9f1ec;font-size:1.05rem;margin-bottom:1rem}
+/* QUÉ NOS DIFERENCIA */
+.diferencia{background:var(--teal);color:#fff}
+.diferencia .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.diferencia h2{font-size:clamp(1.9rem,3.6vw,2.9rem);margin-bottom:1.2rem}
+.diferencia p{color:#e9f1ec;font-size:1.05rem;margin-bottom:1rem}
 
 /* CÓMO LLEGAR */
 .llegar{background:var(--bruma)}
@@ -165,10 +155,14 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 /* i18n: el cambio de idioma se hace con JS (ver setLang) */
 
 /* responsive */
+@media(max-width:1080px){
+  .nav-desktop a{font-size:.7rem;letter-spacing:.06em}
+  .nav-desktop{gap:1.1rem}
+}
 @media(max-width:980px){
   .cards,.rooms{grid-template-columns:repeat(2,1fr)}
   .gal-grid{grid-template-columns:repeat(3,1fr)}
-  .intro .grid,.gastro .grid,.llegar .grid{grid-template-columns:1fr}
+  .intro .grid,.diferencia .grid,.llegar .grid{grid-template-columns:1fr}
 }
 @media(max-width:720px){
   .nav-desktop{display:none}
@@ -184,14 +178,14 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- HEADER (sin logo, solo texto + nav) -->
 <header class="site-header" id="header">
-  <a href="#inicio" class="brand"><img src="logo-blanco.png" alt="Casa Fractal · Coquí · Chocó"></a>
+  <a href="#inicio" class="brand-text">FRACTAL</a>
   <nav class="nav-desktop">
-    <a href="#historia" data-es="Historia" data-en="Story">Historia</a>
+    <a href="#proposito" data-es="Propósito" data-en="Purpose">Propósito</a>
     <a href="#experiencias" data-es="Experiencias" data-en="Experiences">Experiencias</a>
     <a href="#alojamiento" data-es="Alojamiento" data-en="Stay">Alojamiento</a>
-    <a href="#gastronomia" data-es="Gastronomía" data-en="Cuisine">Gastronomía</a>
+    <a href="#diferencia" data-es="¿Qué nos diferencia?" data-en="What sets us apart?">¿Qué nos diferencia?</a>
     <a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a>
     <a href="#llegar" data-es="Cómo llegar" data-en="Getting here">Cómo llegar</a>
     <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
@@ -208,25 +202,25 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 
 <!-- MENÚ MÓVIL -->
 <nav class="nav-mobile" id="navMobile">
-  <a href="#historia" data-es="Historia" data-en="Story">Historia</a>
+  <a href="#proposito" data-es="Propósito" data-en="Purpose">Propósito</a>
   <a href="#experiencias" data-es="Experiencias" data-en="Experiences">Experiencias</a>
   <a href="#alojamiento" data-es="Alojamiento" data-en="Stay">Alojamiento</a>
-  <a href="#gastronomia" data-es="Gastronomía" data-en="Cuisine">Gastronomía</a>
+  <a href="#diferencia" data-es="¿Qué nos diferencia?" data-en="What sets us apart?">¿Qué nos diferencia?</a>
   <a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a>
   <a href="#llegar" data-es="Cómo llegar" data-en="Getting here">Cómo llegar</a>
   <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
   <a class="btn-solid wa-link" href="#" data-es="Reservar por WhatsApp" data-en="Book via WhatsApp" target="_blank" rel="noopener">Reservar</a>
 </nav>
 
-<!-- HERO -->
+<!-- HERO con logo grande -->
 <section class="hero" id="inicio">
   <div class="hero-media"></div>
   <div class="hero-overlay"></div>
   <div class="wrap">
     <div class="hero-content">
-      <p class="eyebrow" data-es="Coquí · Nuquí · Chocó · Pacífico colombiano" data-en="Coquí · Nuquí · Chocó · Colombian Pacific">Coquí · Nuquí · Chocó · Pacífico colombiano</p>
+      <img src="logo-blanco.png" alt="Casa Fractal" class="hero-logo">
       <h1 data-es="La casa de las ciencias y los saberes" data-en="The house of sciences and knowledge">La casa de las ciencias y los saberes</h1>
-      <p data-es="Un refugio para el turismo científico donde la selva del Chocó se encuentra con el mar. Observa, aprende y conéctate con uno de los lugares más biodiversos del planeta." data-en="A refuge for scientific tourism where the Chocó rainforest meets the sea. Observe, learn and connect with one of the most biodiverse places on Earth.">Un refugio para el turismo científico donde la selva del Chocó se encuentra con el mar. Observa, aprende y conéctate con uno de los lugares más biodiversos del planeta.</p>
+      <p data-es="La experiencia de turismo científico y biocultural en uno de los lugares más biodiversos del planeta. Observa, aprende y conéctate con la naturaleza aquí, en este lugar deslumbrante donde la selva del Chocó se encuentra con el mar." data-en="The scientific and biocultural tourism experience in one of the most biodiverse places on Earth. Observe, learn and connect with nature here, in this dazzling place where the Chocó rainforest meets the sea.">La experiencia de turismo científico y biocultural en uno de los lugares más biodiversos del planeta. Observa, aprende y conéctate con la naturaleza aquí, en este lugar deslumbrante donde la selva del Chocó se encuentra con el mar.</p>
       <div class="hero-ctas">
         <a class="btn-solid wa-link" href="#" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
@@ -239,16 +233,16 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
   <div class="scroll-hint" data-es="Descubre" data-en="Discover">Descubre</div>
 </section>
 
-<!-- HISTORIA -->
-<section class="section intro" id="historia">
+<!-- PROPÓSITO (antes "Historia") -->
+<section class="section intro" id="proposito">
   <div class="wrap">
     <div class="grid">
       <div class="reveal">
-        <p class="eyebrow" data-es="Nuestra historia" data-en="Our story">Nuestra historia</p>
+        <p class="eyebrow" data-es="Propósito" data-en="Purpose">Propósito</p>
         <h2 data-es="Una casa para mirar de cerca el Chocó" data-en="A house to look closely at Chocó">Una casa para mirar de cerca el Chocó</h2>
-        <p data-es="Casa Fractal nace en Coquí, un pueblo del municipio de Nuquí, en el corazón del Pacífico colombiano. Soñamos un lugar donde la curiosidad fuera el motivo del viaje: la casa de las ciencias y los saberes, dedicada al turismo científico." data-en="Casa Fractal was born in Coquí, a village in the municipality of Nuquí, in the heart of the Colombian Pacific. We dreamed of a place where curiosity was the reason to travel: the house of sciences and knowledge, devoted to scientific tourism.">Casa Fractal nace en Coquí, un pueblo del municipio de Nuquí, en el corazón del Pacífico colombiano. Soñamos un lugar donde la curiosidad fuera el motivo del viaje: la casa de las ciencias y los saberes, dedicada al turismo científico.</p>
-        <p data-es="Aquí investigadores, viajeros, estudiantes y curiosos se encuentran con la comunidad local para aprender juntos. Entre la selva húmeda, el manglar y el mar, cada estadía es una invitación a observar el territorio con asombro y respeto." data-en="Here researchers, travelers, students and the curious meet the local community to learn together. Among the rainforest, the mangrove and the sea, every stay is an invitation to observe the territory with wonder and respect.">Aquí investigadores, viajeros, estudiantes y curiosos se encuentran con la comunidad local para aprender juntos. Entre la selva húmeda, el manglar y el mar, cada estadía es una invitación a observar el territorio con asombro y respeto.</p>
-        <p data-es="Como un fractal, este lugar revela patrones que se repiten a distintas escalas: de la raíz del mangle a la copa de los árboles, de la marea a las estrellas. Te invitamos a descubrirlos." data-en="Like a fractal, this place reveals patterns that repeat across scales: from the mangrove root to the treetops, from the tide to the stars. We invite you to discover them.">Como un fractal, este lugar revela patrones que se repiten a distintas escalas: de la raíz del mangle a la copa de los árboles, de la marea a las estrellas. Te invitamos a descubrirlos.</p>
+        <p data-es="Casa Fractal nace en Coquí, corregimiento del municipio de Nuquí, en el corazón del Pacífico colombiano. Soñamos un lugar donde la curiosidad fuera el motivo del viaje: la casa de las ciencias y los saberes, dedicada al turismo científico y biocultural." data-en="Casa Fractal was born in Coquí, a hamlet of the municipality of Nuquí, in the heart of the Colombian Pacific. We dreamed of a place where curiosity was the reason to travel: the house of sciences and knowledge, devoted to scientific and biocultural tourism.">Casa Fractal nace en Coquí, corregimiento del municipio de Nuquí, en el corazón del Pacífico colombiano. Soñamos un lugar donde la curiosidad fuera el motivo del viaje: la casa de las ciencias y los saberes, dedicada al turismo científico y biocultural.</p>
+        <p data-es="Aquí los viajeros, investigadores, estudiantes y amantes de la naturaleza se encuentran con la comunidad local para aprender juntos. Entre la selva húmeda, el manglar y el mar, cada estadía es una invitación a observar el territorio con asombro y respeto." data-en="Here travelers, researchers, students and nature lovers meet the local community to learn together. Among the rainforest, the mangrove and the sea, every stay is an invitation to observe the territory with wonder and respect.">Aquí los viajeros, investigadores, estudiantes y amantes de la naturaleza se encuentran con la comunidad local para aprender juntos. Entre la selva húmeda, el manglar y el mar, cada estadía es una invitación a observar el territorio con asombro y respeto.</p>
+        <p data-es="Como un fractal, este lugar revela patrones que se repiten a distintas escalas: de la raíz del mangle a la copa de los árboles, de la marea a las estrellas. Te invitamos a descubrirlos, celebrarlos y reconocerte como parte de este entramado." data-en="Like a fractal, this place reveals patterns that repeat across scales: from the mangrove root to the treetops, from the tide to the stars. We invite you to discover them, celebrate them and recognize yourself as part of this fabric.">Como un fractal, este lugar revela patrones que se repiten a distintas escalas: de la raíz del mangle a la copa de los árboles, de la marea a las estrellas. Te invitamos a descubrirlos, celebrarlos y reconocerte como parte de este entramado.</p>
       </div>
       <div class="figure reveal"><img src="img/casa_fachada2.jpg" alt="Casa Fractal en Coquí, rodeada de selva" loading="lazy"></div>
     </div>
@@ -261,93 +255,98 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
   </svg>
 </div>
 
-<!-- EXPERIENCIAS -->
+<!-- EXPERIENCIAS (5 tarjetas con descripción) -->
 <section class="section experiencias" id="experiencias">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow" data-es="Turismo científico" data-en="Scientific tourism">Turismo científico</p>
+      <p class="eyebrow" data-es="Turismo científico y biocultural" data-en="Scientific &amp; biocultural tourism">Turismo científico y biocultural</p>
       <h2 data-es="Experiencias para observar y aprender" data-en="Experiences to observe and learn">Experiencias para observar y aprender</h2>
       <p data-es="Cada experiencia se vive al ritmo de la marea y del territorio, acompañada por la mirada científica y los saberes de la comunidad de Coquí." data-en="Each experience unfolds at the rhythm of the tide and the territory, guided by a scientific eye and the knowledge of the Coquí community.">Cada experiencia se vive al ritmo de la marea y del territorio, acompañada por la mirada científica y los saberes de la comunidad de Coquí.</p>
     </div>
     <div class="cards">
+
       <article class="card reveal">
-        <div class="figure"><img src="img/boca1.JPG" alt="Costa del Pacífico al atardecer" loading="lazy"></div>
+        <div class="figure"><img src="img/boca1.JPG" alt="Avistamiento de ballenas en el Pacífico" loading="lazy"></div>
         <div class="card-body">
           <h3 data-es="Avistamiento de ballenas" data-en="Whale watching">Avistamiento de ballenas</h3>
+          <p data-es="Aprende sobre estas majestuosas visitantes de la mano de guías locales certificados en avistamientos responsables, en recorridos de aproximadamente dos horas de duración." data-en="Learn about these majestic visitors guided by certified local guides in responsible whale-watching tours lasting approximately two hours.">Aprende sobre estas majestuosas visitantes de la mano de guías locales certificados en avistamientos responsables, en recorridos de aproximadamente dos horas de duración.</p>
         </div>
       </article>
+
       <article class="card reveal">
-        <div class="figure"><img src="img/manglar2.jpg" alt="Raíces de manglar reflejadas en el agua" loading="lazy"></div>
+        <div class="figure"><img src="img/manglar2.jpg" alt="Explorando los manglares en canoa" loading="lazy"></div>
         <div class="card-body">
-          <h3 data-es="Recorridos por el manglar" data-en="Mangrove tours">Recorridos por el manglar</h3>
+          <h3 data-es="Explorando los manglares" data-en="Exploring the mangroves">Explorando los manglares</h3>
+          <p data-es="Navega y explora en canoa el ecosistema de manglar con los Eco-guías de Coquí, una organización local con más de 30 años de experiencia en conservación. Inicia el recorrido en Boca Vieja, donde el estero se une con el mar, y recorre sus meandros bajo el dosel de los mangles. Finaliza con una visita al pueblo de Coquí y un regreso caminando por una de las playas más bellas del Golfo de Tribugá." data-en="Paddle and explore the mangrove ecosystem by canoe with the Eco-guides of Coquí, a local organization with over 30 years of conservation experience. Start the route at Boca Vieja, where the estuary meets the sea, and wind through its meanders beneath the mangrove canopy. Finish with a visit to the village of Coquí and a walk back along one of the most beautiful beaches of the Gulf of Tribugá.">Navega y explora en canoa el ecosistema de manglar con los Eco-guías de Coquí, una organización local con más de 30 años de experiencia en conservación. Inicia el recorrido en Boca Vieja, donde el estero se une con el mar, y recorre sus meandros bajo el dosel de los mangles. Finaliza con una visita al pueblo de Coquí y un regreso caminando por una de las playas más bellas del Golfo de Tribugá.</p>
         </div>
       </article>
+
       <article class="card reveal">
-        <div class="figure"><img src="img/arena1.JPG" alt="Árboles del bosque húmedo tropical" loading="lazy"></div>
+        <div class="figure"><img src="img/arena1.JPG" alt="Cascada Bejuquillal en la selva" loading="lazy"></div>
         <div class="card-body">
-          <h3 data-es="Selva y biodiversidad" data-en="Rainforest & biodiversity">Selva y biodiversidad</h3>
+          <h3 data-es="Cascada Bejuquillal" data-en="Bejuquillal Waterfall">Cascada Bejuquillal</h3>
+          <p data-es="Recomendado para las almas aventureras, este recorrido te adentrará en la selva siguiendo el cauce de la quebrada hasta llegar a la cascada cristalina con sus cuatro pozas de agua fría para un chapuzón tonificante y recargar energía." data-en="Recommended for adventurous souls, this hike takes you deep into the rainforest following the creek bed until you reach the crystal-clear waterfall with its four cold-water pools for an invigorating dip and an energy recharge.">Recomendado para las almas aventureras, este recorrido te adentrará en la selva siguiendo el cauce de la quebrada hasta llegar a la cascada cristalina con sus cuatro pozas de agua fría para un chapuzón tonificante y recargar energía.</p>
         </div>
       </article>
+
       <article class="card reveal">
-        <div class="figure"><img src="img/familia-playa.JPG" alt="Caminata por la playa de Coquí" loading="lazy"></div>
+        <div class="figure"><img src="img/comida1.JPG" alt="Gastronomía del Pacífico en Zotea" loading="lazy"></div>
         <div class="card-body">
-          <h3 data-es="Observación de aves" data-en="Birdwatching">Observación de aves</h3>
+          <h3 data-es="Restaurante comunitario Zotea" data-en="Zotea community restaurant">Restaurante comunitario Zotea</h3>
+          <p data-es="Experiencia de gozo de los sentidos en Zotea, donde la sazón de las afamadas cocineras coquiseñas te lleva al corazón de la gastronomía del Pacífico. Gestionado por las mujeres de Coquí, mantiene vivos los saberes de la cocina ancestral afrocolombiana con elaborados platos dulces y salados, bebidas y cócteles." data-en="A feast for the senses at Zotea, where the renowned Coquí cooks take you to the heart of Pacific gastronomy. Run by the women of Coquí, it keeps alive the knowledge of ancestral Afro-Colombian cooking with elaborate sweet and savory dishes, drinks and cocktails.">Experiencia de gozo de los sentidos en Zotea, donde la sazón de las afamadas cocineras coquiseñas te lleva al corazón de la gastronomía del Pacífico. Gestionado por las mujeres de Coquí, mantiene vivos los saberes de la cocina ancestral afrocolombiana con elaborados platos dulces y salados, bebidas y cócteles.</p>
         </div>
       </article>
+
       <article class="card reveal">
-        <div class="figure"><img src="img/comida1.JPG" alt="Estero al atardecer reflejando el cielo" loading="lazy"></div>
+        <div class="figure"><img src="img/familia-playa.JPG" alt="Pesca artesanal en Coquí" loading="lazy"></div>
         <div class="card-body">
-          <h3 data-es="Cielo, marea y estero" data-en="Sky, tide & estuary">Cielo, marea y estero</h3>
+          <h3 data-es="Pesca artesanal" data-en="Artisanal fishing">Pesca artesanal</h3>
+          <p data-es="Vive esta experiencia única y reconoce el profundo valor de las prácticas ancestrales de pesca artesanal para la soberanía alimentaria de los pueblos del Golfo de Tribugá. Disfruta conversando con los pescadores en esta experiencia de aprendizaje vivencial. Si estás de suerte y aprendes rápido, regresarás con tu pescado para el almuerzo." data-en="Live this unique experience and recognize the deep value of ancestral artisanal fishing practices for the food sovereignty of the Gulf of Tribugá communities. Enjoy chatting with the fishermen in this hands-on learning experience. If you're lucky and learn fast, you'll return with your catch for lunch.">Vive esta experiencia única y reconoce el profundo valor de las prácticas ancestrales de pesca artesanal para la soberanía alimentaria de los pueblos del Golfo de Tribugá. Disfruta conversando con los pescadores en esta experiencia de aprendizaje vivencial. Si estás de suerte y aprendes rápido, regresarás con tu pescado para el almuerzo.</p>
         </div>
       </article>
-      <article class="card reveal">
-        <div class="figure"><img src="img/boca1.JPG" alt="Llegada en lancha a la costa de Coquí" loading="lazy"></div>
-        <div class="card-body">
-          <h3 data-es="Saberes locales" data-en="Local knowledge">Saberes locales</h3>
-        </div>
-      </article>
+
     </div>
   </div>
 </section>
 
-<!-- ALOJAMIENTO -->
+<!-- ALOJAMIENTO (reescrito) -->
 <section class="section aloja" id="alojamiento">
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="eyebrow" data-es="Alojamiento" data-en="Stay">Alojamiento</p>
-      <h2 data-es="Tu descanso, rodeado de naturaleza" data-en="Your rest, surrounded by nature">Tu descanso, rodeado de naturaleza</h2>
-      <p data-es="Espacios sencillos y cómodos, diseñados en armonía con el entorno: ventilación natural, energía solar, toldillo y el sonido del mar y la selva como banda sonora." data-en="Simple, comfortable spaces designed in harmony with the surroundings: natural ventilation, solar power, mosquito nets and the sound of the sea and rainforest as a soundtrack.">Espacios sencillos y cómodos, diseñados en armonía con el entorno: ventilación natural, energía solar, toldillo y el sonido del mar y la selva como banda sonora.</p>
+      <h2 data-es="Tu descanso en vibración natural" data-en="Your rest in natural vibration">Tu descanso en vibración natural</h2>
+      <p data-es="Espacios sencillos y cómodos diseñados en armonía con el entorno: ventilación natural, energía solar, toldillo y el sonido del mar y la selva como banda sonora." data-en="Simple, comfortable spaces designed in harmony with the surroundings: natural ventilation, solar power, mosquito nets and the sound of the sea and rainforest as a soundtrack.">Espacios sencillos y cómodos diseñados en armonía con el entorno: ventilación natural, energía solar, toldillo y el sonido del mar y la selva como banda sonora.</p>
     </div>
     <div class="rooms">
       <div class="room reveal">
-        <div class="figure"><img src="img/casa_fachada1.JPG" alt="Habitación con toldillo y ventana a la selva" loading="lazy"></div>
-        <h3 data-es="Habitaciones con toldillo" data-en="Rooms with mosquito nets">Habitaciones con toldillo</h3>
-        <p data-es="Camas amplias con toldillo y ventanas abiertas a la selva. Frescas, tranquilas y pensadas para un descanso profundo." data-en="Spacious beds with mosquito nets and windows open to the rainforest. Cool, quiet and made for deep rest.">Camas amplias con toldillo y ventanas abiertas a la selva. Frescas, tranquilas y pensadas para un descanso profundo.</p>
+        <div class="figure"><img src="img/casa_fachada1.JPG" alt="Habitaciones de Casa Fractal" loading="lazy"></div>
+        <h3 data-es="Habitaciones" data-en="Rooms">Habitaciones</h3>
+        <p data-es="Habitaciones frescas, tranquilas y pensadas para un descanso profundo; acomodación sencilla, doble o triple. Camas amplias con toldillo y vista a la selva y al mar en cada habitación. Amenities ecológicas." data-en="Cool, quiet rooms designed for deep rest; single, double or triple accommodation. Spacious beds with mosquito nets and views of the rainforest and sea from every room. Ecological amenities.">Habitaciones frescas, tranquilas y pensadas para un descanso profundo; acomodación sencilla, doble o triple. Camas amplias con toldillo y vista a la selva y al mar en cada habitación. Amenities ecológicas.</p>
       </div>
       <div class="room reveal">
         <div class="figure"><img src="img/corredor1.jpg" alt="Terraza con hamacas y zona social" loading="lazy"></div>
         <h3 data-es="Terraza y zona social" data-en="Terrace & social area">Terraza y zona social</h3>
-        <p data-es="Una galería con hamacas y mesa común para compartir, leer, conversar o simplemente dejar pasar la tarde frente al verde." data-en="A veranda with hammocks and a shared table to gather, read, talk or simply let the afternoon go by facing the green.">Una galería con hamacas y mesa común para compartir, leer, conversar o simplemente dejar pasar la tarde frente al verde.</p>
+        <p data-es="Fresca galería con hamacas y mesón común para compartir, leer, conversar o simplemente dejar pasar la tarde frente a la vegetación y el mar." data-en="Cool veranda with hammocks and a shared counter for gathering, reading, talking or simply letting the afternoon pass facing the greenery and the sea.">Fresca galería con hamacas y mesón común para compartir, leer, conversar o simplemente dejar pasar la tarde frente a la vegetación y el mar.</p>
       </div>
       <div class="room reveal">
         <div class="figure"><img src="img/casa_aerea1.JPG" alt="Vista aérea de Casa Fractal entre la selva" loading="lazy"></div>
         <h3 data-es="Entre selva y playa" data-en="Between jungle and beach">Entre selva y playa</h3>
-        <p data-es="La casa se esconde entre los árboles, a pocos pasos de la playa. Energía solar 24/7 y la naturaleza como única vecina." data-en="The house hides among the trees, steps from the beach. 24/7 solar power and nature as the only neighbour.">La casa se esconde entre los árboles, a pocos pasos de la playa. Energía solar 24/7 y la naturaleza como única vecina.</p>
+        <p data-es="La casa se encuentra ubicada en Boca Vieja, corregimiento de Coquí, en una de las playas más tranquilas, bellas y exclusivas del Golfo de Tribugá. A sólo 30 minutos en lancha desde Nuquí y rodeada de selva, mar, cascadas y manglares. Ideal para grupos familiares o de amigos, cuenta con tres habitaciones y dos baños completos, con capacidad para 8-10 personas. Agua potable de nacimiento, energía solar e internet satelital 24/7." data-en="The house is located in Boca Vieja, in the hamlet of Coquí, on one of the quietest, most beautiful and exclusive beaches of the Gulf of Tribugá. Just 30 minutes by boat from Nuquí and surrounded by jungle, sea, waterfalls and mangroves. Ideal for family or friend groups, it has three bedrooms and two full bathrooms, accommodating 8–10 guests. Spring-sourced drinking water, solar power and 24/7 satellite internet.">La casa se encuentra ubicada en Boca Vieja, corregimiento de Coquí, en una de las playas más tranquilas, bellas y exclusivas del Golfo de Tribugá. A sólo 30 minutos en lancha desde Nuquí y rodeada de selva, mar, cascadas y manglares. Ideal para grupos familiares o de amigos, cuenta con tres habitaciones y dos baños completos, con capacidad para 8-10 personas. Agua potable de nacimiento, energía solar e internet satelital 24/7.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GASTRONOMÍA -->
-<section class="section gastro" id="gastronomia">
+<!-- ¿QUÉ NOS DIFERENCIA? (sección nueva) -->
+<section class="section diferencia" id="diferencia">
   <div class="wrap">
     <div class="grid">
-      <div class="figure reveal"><img src="img/comida1.JPG" alt="Mesa común en la terraza de Casa Fractal" loading="lazy"></div>
+      <div class="figure reveal"><img src="img/atardecer1.JPG" alt="Atardecer en la playa de Coquí" loading="lazy"></div>
       <div class="reveal">
-        <p class="eyebrow" data-es="Cocina del Pacífico" data-en="Pacific cuisine">Cocina del Pacífico</p>
-        <h2 data-es="Sabores con alma de territorio" data-en="Flavors with the soul of the territory">Sabores con alma de territorio</h2>
-        <p data-es="Pescado fresco del día, coco, plátano y los sabores de las raíces afro, indígenas y mestizas del Chocó. Nuestras cocineras y cocineros locales preparan cada plato con tradición y cariño." data-en="Fresh catch of the day, coconut, plantain and the flavors of the Afro, Indigenous and mestizo roots of Chocó. Our local cooks prepare every dish with tradition and care.">Pescado fresco del día, coco, plátano y los sabores de las raíces afro, indígenas y mestizas del Chocó. Nuestras cocineras y cocineros locales preparan cada plato con tradición y cariño.</p>
-        <p data-es="Comer en Casa Fractal también es aprender: cada preparación cuenta la historia de un territorio que cocina con lo que le da el mar, el río y la huerta." data-en="Eating at Casa Fractal is also learning: each dish tells the story of a territory that cooks with what the sea, the river and the garden provide.">Comer en Casa Fractal también es aprender: cada preparación cuenta la historia de un territorio que cocina con lo que le da el mar, el río y la huerta.</p>
+        <p class="eyebrow" data-es="¿Qué nos diferencia?" data-en="What sets us apart?">¿Qué nos diferencia?</p>
+        <h2 data-es="Privacidad, naturaleza y conexión" data-en="Privacy, nature and connection">Privacidad, naturaleza y conexión</h2>
+        <p data-es="La principal diferencia de Fractal con otro tipo de oferta en la zona es la privacidad, tranquilidad y reposo que proporciona. Es una finca en la selva y el mar que no se encuentra ubicada en la zona hotelera." data-en="The main difference between Fractal and other options in the area is the privacy, tranquility and rest it provides. It is a property in the jungle and by the sea, located outside the hotel zone.">La principal diferencia de Fractal con otro tipo de oferta en la zona es la privacidad, tranquilidad y reposo que proporciona. Es una finca en la selva y el mar que no se encuentra ubicada en la zona hotelera.</p>
+        <p data-es="Estas condiciones favorecen plenamente la relajación y la conexión con la naturaleza y esto es lo que más valoran nuestros huéspedes." data-en="These conditions fully support relaxation and connection with nature, and this is what our guests value the most.">Estas condiciones favorecen plenamente la relajación y la conexión con la naturaleza y esto es lo que más valoran nuestros huéspedes.</p>
       </div>
     </div>
   </div>
@@ -365,8 +364,8 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
       <div class="figure wide reveal"><img src="img/playa2.JPG" alt="Desembocadura del río en la playa, vista aérea" loading="lazy"></div>
       <div class="figure reveal"><img src="img/atardecer2.JPG" alt="Tronco en la playa de Coquí" loading="lazy"></div>
       <div class="figure reveal"><img src="img/playa1.JPG" alt="Reflejo del cielo en el estero" loading="lazy"></div>
-      <div class="figure wide reveal"><img src="img/atardecer1.JPG" alt="Costa y selva del Pacífico, vista aérea" loading="lazy"></div>
-      <div class="figure reveal"><img src="img/boca_aerea1.JPG" alt="Playa al atardecer" loading="lazy"></div>
+      <div class="figure wide reveal"><img src="img/atardecer1.JPG" alt="Costa y selva del Pacífico" loading="lazy"></div>
+      <div class="figure reveal"><img src="img/boca_aerea1.JPG" alt="Vista aérea de la costa" loading="lazy"></div>
       <div class="figure reveal"><img src="img/familia-playa.JPG" alt="Caminata familiar por la playa" loading="lazy"></div>
       <div class="figure reveal"><img src="img/manglar1.JPG" alt="Raíces de manglar" loading="lazy"></div>
     </div>
@@ -446,7 +445,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-he
 </a>
 
 <script>
-const WHATSAPP_NUMERO = "573046666268";  // +57 304 666 6268
+const WHATSAPP_NUMERO = "573046666268";
 const WA_MSG = {
   es: "Hola Casa Fractal, quiero información para reservar.",
   en: "Hello Casa Fractal, I'd like information to make a booking."
@@ -459,7 +458,6 @@ function setLang(lang){
   document.documentElement.lang = lang;
   document.getElementById("btn-es").classList.toggle("active", lang === "es");
   document.getElementById("btn-en").classList.toggle("active", lang === "en");
-  // Intercambiar texto visible en todos los elementos con data-es/data-en
   document.querySelectorAll("[data-es][data-en]").forEach(function(el){
     el.textContent = el.getAttribute("data-" + lang);
   });
@@ -483,3 +481,4 @@ document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 </script>
 </body>
 </html>
+
